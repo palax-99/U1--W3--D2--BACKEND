@@ -43,8 +43,11 @@ public class Application {
             System.out.println(ex.getMessage());
         }
 
-        System.out.println("Hello World!");
-
+        try {
+            EventiDAO.findByIdAndDelete(3);
+        } catch (provaException ex) {
+            System.out.println(ex.getMessage());
+        }
         entityManager.close();
         entityManagerFactory.close();
     }
