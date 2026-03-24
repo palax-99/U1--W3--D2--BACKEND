@@ -1,6 +1,7 @@
 package AntoninoPalazzolo.dao;
 
 import AntoninoPalazzolo.entities.Evento;
+import AntoninoPalazzolo.exceptions.provaException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
@@ -24,7 +25,13 @@ public class EventiDAO {
 
         System.out.println("L'evento" + newEvento.getTitolo() + " è stato salvato con successo!");
         //5 controllo per vedere se l'operazione è andata a buon fine
-
-
     }
+
+    public Evento foundById(long id) {
+        Evento found = entityManager.find(Evento.class, id);
+        System.out.println("L'evento è stato trovato");
+        if (found == null) throw new provaException(id);
+        return found;
+    }
+
 }

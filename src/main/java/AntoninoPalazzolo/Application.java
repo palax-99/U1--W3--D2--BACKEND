@@ -3,6 +3,7 @@ package AntoninoPalazzolo;
 import AntoninoPalazzolo.dao.EventiDAO;
 import AntoninoPalazzolo.entities.Evento;
 import AntoninoPalazzolo.entities.TipoEvento;
+import AntoninoPalazzolo.exceptions.provaException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -33,6 +34,14 @@ public class Application {
         EventiDAO.save(evento1); // testo il metodo save
         EventiDAO.save(evento2);
         EventiDAO.save(evento3);
+
+        EventiDAO.foundById(1); // testo il metodo
+        try {
+            Evento eventoFromDB = EventiDAO.foundById(25); // metodo piu sicuro perchè gestisce gli errori
+            System.out.println(eventoFromDB);
+        } catch (provaException ex) {
+            System.out.println(ex.getMessage());
+        }
 
         System.out.println("Hello World!");
 
