@@ -31,9 +31,9 @@ public class Application {
                 TipoEvento.PRIVATO,
                 50
         );
-        EventiDAO.save(evento1); // testo il metodo save
-        EventiDAO.save(evento2);
-        EventiDAO.save(evento3);
+        //EventiDAO.save(evento1); // testo il metodo save
+        //EventiDAO.save(evento2);
+        //EventiDAO.save(evento3);
 
         EventiDAO.foundById(1); // testo il metodo
         try {
